@@ -1,5 +1,3 @@
-from sys import *
-import os
 
 class Number(object):
 	def check(self):
@@ -12,8 +10,7 @@ class Number(object):
 				break
 		if n == 1:
 			print('\n __ 不是质数 __ \n')
-			exit(1)
-		if s == 0:
+		elif s == 0:
 			print('\n __ 是质数 __ \n')
 		else:
 			print('\n __ 不是质数 __ \n')
@@ -47,8 +44,8 @@ class Number(object):
 		k = 2 #假设为最小质数
 		l = [] #因数列表，把解出来的因数都放里面
 		
-	
-		while n > k:
+		end = n
+		while n > 1:
 		#当 n > k 时正面有可能被分解
 			if n % k == 0:
 			# 当k 为 n 的 因数时 把分解的因数 k 放出 l 中
@@ -59,9 +56,8 @@ class Number(object):
 				k += 1
 		if len(l) == 0:
 			print ('这个数字为质数，不能分解')
-			exit()
 		else:
-			print ('%d =' %n,end=(' '))
+			print ('%d =' %end,end=(' '))
 			for j in range(len(l)):
 				#最后把因数列表 l 打印出来
 				if j == len(l)-1:
@@ -70,7 +66,7 @@ class Number(object):
 				else:
 					p = '%d * ' % int(l[j])
 				print (p , end = ' ')
-		print ('\n',int(n))
+		print ('\n最后除完后的数为:',int(n))
 
 	def start(self):
 		i = int(input('>'))
